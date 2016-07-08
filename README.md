@@ -16,33 +16,33 @@ A [Meteor](https://www.meteor.com/) based todo list for teams. Using [Materiliaz
 ## File Structure
 
 imports/
-  startup/
-    client/
-      index.js                 // import client startup through a single index entry point
-      routes.js                // set up all routes in the app
-      useraccounts-configuration.js // configure login templates
-    server/
-      fixtures.js              // fill the DB with example data on startup
-      index.js                 // import server startup through a single index entry point
+&nbsp;startup/
+&nbsp;&nbsp;client/
+&nbsp;&nbsp;&nbsp;index.js                 // import client startup through a single index entry point
+&nbsp;&nbsp;&nbsp;routes.js                // set up all routes in the app
+&nbsp;&nbsp;&nbsp;useraccounts-configuration.js // configure login templates
+&nbsp;&nbsp;server/
+&nbsp;&nbsp;&nbsp;fixtures.js              // fill the DB with example data on startup
+&nbsp;&nbsp;&nbsp;index.js                 // import server startup through a single index entry point
 
-  api/
-    tasks/                     // a unit of domain logic
-      server/
-        publications.js        // all list-related publications
-        publications.tests.js  // tests for the list publications
-      tasks.js                 // definition of the tasks collection
-      tasks.tests.js           // tests for the behavior of that collection
-      methods.js               // methods related to tasks
-      methods.tests.js         // tests for those methods
+&nbsp;api/
+&nbsp;&nbsp;tasks/                     // a unit of domain logic
+&nbsp;&nbsp;&nbsp;server/
+&nbsp;&nbsp;&nbsp;&nbsp;publications.js        // all list-related publications
+&nbsp;&nbsp;&nbsp;&nbsp;publications.tests.js  // tests for the list publications
+&nbsp;&nbsp;&nbsp;tasks.js                 // definition of the tasks collection
+&nbsp;&nbsp;&nbsp;tasks.tests.js           // tests for the behavior of that collection
+&nbsp;&nbsp;&nbsp;methods.js               // methods related to tasks
+&nbsp;&nbsp;&nbsp;methods.tests.js         // tests for those methods
 
-  ui/
-    components/                // all reusable components in the application
+&nbsp;ui/
+&nbsp;&nbsp;components/                // all reusable components in the application
                                // can be split by domain if there are many
-    layouts/                   // wrapper components for behavior and visuals
-    pages/                     // entry points for rendering used by the router
+&nbsp;&nbsp;layouts/                   // wrapper components for behavior and visuals
+&nbsp;&nbsp;pages/                     // entry points for rendering used by the router
 
 client/
-  main.js                      // client entry point, imports all client code
+&nbsp;main.js                      // client entry point, imports all client code
 
 server/
-  main.js                      // server entry point, imports all server code
+&nbsp;main.js                      // server entry point, imports all server code
