@@ -16,8 +16,8 @@ A [Meteor](https://www.meteor.com/) based todo list for teams. Using [Materiliaz
 ## File Structure
 
 imports/
-&nbsp;startup/
-&nbsp;&nbsp;client/
+* startup/
+** client/
 &nbsp;&nbsp;&nbsp;index.js                 // import client startup through a single index entry point
 &nbsp;&nbsp;&nbsp;routes.js                // set up all routes in the app
 &nbsp;&nbsp;&nbsp;useraccounts-configuration.js // configure login templates
