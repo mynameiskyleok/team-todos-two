@@ -14,35 +14,37 @@ A [Meteor](https://www.meteor.com/) based todo list for teams. Using [Materiliaz
 3. `meteor`
 
 ## File Structure
+```
+.
+├── imports/
+|   ├── startup/
+|   |   ├── client/
+|   |   |   ├── index.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// import client startup through a single index entry point
+|   |   |   ├── routes.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// set up all routes in the app
+|   |   |   ├── useraccounts-configuration.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// configure login templates
+|   |   ├── server/
+|   |   |   ├── fixtures.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// fill the DB with example data on startup
+|   |   |   ├── index.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// import server startup through a single index entry point
 
-imports/
-&nbsp;startup/
-&nbsp;&nbsp;client/
-&nbsp;&nbsp;&nbsp;index.js                 // import client startup through a single index entry point
-&nbsp;&nbsp;&nbsp;routes.js                // set up all routes in the app
-&nbsp;&nbsp;&nbsp;useraccounts-configuration.js // configure login templates
-&nbsp;&nbsp;server/
-&nbsp;&nbsp;&nbsp;fixtures.js              // fill the DB with example data on startup
-&nbsp;&nbsp;&nbsp;index.js                 // import server startup through a single index entry point
+|   ├── api/
+|   |   ├── tasks/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// a unit of domain logic
+|   |   |   ├── server/
+|   |   |   |   ├── publications.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // all list-related publications
+|   |   |   |   ├── publications.tests.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // tests for the list publications
+|   |   |   ├── tasks.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// definition of the tasks collection
+|   |   |   ├── tasks.tests.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// tests for the behavior of that collection
+|   |   |   ├── methods.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// methods related to tasks
+|   |   |   ├── methods.tests.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// tests for those methods
 
-&nbsp;api/
-&nbsp;&nbsp;tasks/                     // a unit of domain logic
-&nbsp;&nbsp;&nbsp;server/
-&nbsp;&nbsp;&nbsp;&nbsp;publications.js        // all list-related publications
-&nbsp;&nbsp;&nbsp;&nbsp;publications.tests.js  // tests for the list publications
-&nbsp;&nbsp;&nbsp;tasks.js                 // definition of the tasks collection
-&nbsp;&nbsp;&nbsp;tasks.tests.js           // tests for the behavior of that collection
-&nbsp;&nbsp;&nbsp;methods.js               // methods related to tasks
-&nbsp;&nbsp;&nbsp;methods.tests.js         // tests for those methods
+|   ├── ui/
+|   |   ├── components/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// all reusable components in the application
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// can be split by domain if there are many
+|   |   ├── layouts/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// wrapper components for behavior and visuals
+|   |   ├── pages/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// entry points for rendering used by the router
 
-&nbsp;ui/
-&nbsp;&nbsp;components/                // all reusable components in the application
-                               // can be split by domain if there are many
-&nbsp;&nbsp;layouts/                   // wrapper components for behavior and visuals
-&nbsp;&nbsp;pages/                     // entry points for rendering used by the router
+├── client/
+|   ├── main.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// client entry point, imports all client code
 
-client/
-&nbsp;main.js                      // client entry point, imports all client code
-
-server/
-&nbsp;main.js                      // server entry point, imports all server code
+├── server/
+|   ├── main.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// server entry point, imports all server code
+```
