@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import Blaze from 'meteor/gadicc:blaze-react-component';
 
-import { Tasks } from '../api/tasks.js';
+import { Tasks } from '../api/tasks/tasks.js';
 import Task from './Task.jsx';
 
 
