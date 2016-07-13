@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import Blaze from 'meteor/gadicc:blaze-react-component';
+import { Accounts } from 'meteor/std:accounts-ui';
 
 import { Tasks } from '../api/tasks/tasks.js';
 import Task from './Task.jsx';
 
 
-class App extends Component {
+class taskList extends Component {
 
   constructor(props) {
     super(props);
@@ -57,10 +58,13 @@ class App extends Component {
         <header>
           <div className="row">
             <div className="col s9">
-              <h4>Todo List ({this.props.incompleteCount})</h4>
+              <h4>Todo List (Team View) ({this.props.incompleteCount})</h4>
             </div>
             <div className="col s3">
-              <Blaze template="loginButtons" className="right" />
+              {/*<Blaze template="signIn" className="right" />*/}
+              { this.props.currentUser ? <a href="/signout">Sign Out</a> : <a href="/signin">Sign In</a> }
+              {/* this.props.currentUser ? 'Welcome, ' + this.props.currentUser.username + '! | ' + <a href="/signout">Sign Out</a> : <a href="/signin">Sign In</a> */}
+              {/*<Accounts.ui.LoginForm />*/}
             </div>
           </div>
           <div className="row">
@@ -93,18 +97,23 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
+taskList.propTypes = {
   tasks: PropTypes.array.isRequired,
   incompleteCount: PropTypes.number.isRequired,
   currentUser: PropTypes.object
 };
 
 export default createContainer(() => {
-  Meteor.subscribe('tasks');
+
+  if(window.location.pathname === '/tasks'){
+    Meteor.subscribe('myTasks');
+  } else {
+    Meteor.subscribe('teamTasks');
+  }
 
   return {
     tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
     incompleteCount: Tasks.find({ checked: {$ne: true}}).count(),
     currentUser: Meteor.user(),
   };
-}, App);
+}, taskList);

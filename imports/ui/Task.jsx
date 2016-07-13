@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import classnames from 'classnames';
 
-// import { Tasks } from '../api/tasks.js';
-
 export default class Task extends Component {
   toggleChecked() {
     Meteor.call('tasks.setChecked', this.props.task._id, !this.props.task.checked);

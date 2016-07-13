@@ -5,9 +5,18 @@ import { check } from 'meteor/check';
 export const Tasks = new Mongo.Collection('tasks');
 
 if (Meteor.isServer) {
-  Meteor.publish('tasks', function tasksPublication(){
+  Meteor.publish('teamTasks', function tasksPublication(){
     return Tasks.find({
       $or: [
+        { private: { $ne: true } },
+        { owner: this.userId }
+      ]
+    })
+  });
+
+  Meteor.publish('myTasks', function tasksPublication(){
+    return Tasks.find({
+      $and: [
         { private: { $ne: true } },
         { owner: this.userId }
       ]

@@ -22,9 +22,10 @@ react-meteor-data
 meteortoys:allthings
 materialize:materialize
 
-accounts-ui
+#accounts-ui
+std:accounts-material
+
 #art:accounts-ui-unstyled
-#useraccounts:materialize
 #storyteller:accounts-react-materialize
 
 accounts-password
